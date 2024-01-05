@@ -52,26 +52,31 @@ function App() {
               <th>Role</th>
             </tr>
           </thead>
-          {data
-            .slice((currentPage - 1) * 10, currentPage * 10)
-            .map((item, index) => (
-              <>
-                <tbody>
+          <tbody>
+            {data
+              .slice((currentPage - 1) * 10, currentPage * 10)
+              .map((item, index) => (
+                <>
                   <tr key={index}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.role}</td>
                   </tr>
-                </tbody>
-              </>
-            ))}
+                </>
+              ))}
+          </tbody>
         </table>
 
         <div className="navigation">
-          <button onClick={handlePrevPage}>Previous</button>
+          <button
+            onClick={handlePrevPage}
+            style={{ opacity: currentPage > 1 ? 1 : 0.6 }}
+          >
+            Previous
+          </button>
           <span className="pageNumber">{currentPage}</span>
-          <button onClick={handleNextPage}>Next</button>
+          <button onClick={handleNextPage} style={{ opacity: currentPage < totalPages ? 1 : 0.6 }}>Next</button>
         </div>
       </div>
     </>
