@@ -55,9 +55,9 @@ function App() {
           <tbody>
             {data
               .slice((currentPage - 1) * 10, currentPage * 10)
-              .map((item, index) => (
+              .map((item) => (
                 <>
-                  <tr key={index}>
+                  <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
